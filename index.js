@@ -109,7 +109,8 @@ export default class Camera extends Component {
     type: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
-    ])
+    ]),
+    scanModeOn: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -126,6 +127,7 @@ export default class Camera extends Component {
     torchMode: CameraManager.TorchMode.off,
     mirrorImage: false,
     barCodeTypes: Object.values(CameraManager.BarCodeType),
+    scanModeOn: false,
   };
 
   static checkDeviceAuthorizationStatus = CameraManager.checkDeviceAuthorizationStatus;
@@ -251,6 +253,8 @@ export default class Camera extends Component {
 }
 
 export const constants = Camera.constants;
+
+console.log('Camera..', Camera);
 
 const RCTCamera = requireNativeComponent('RCTCamera', Camera);
 
